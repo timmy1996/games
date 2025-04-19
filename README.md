@@ -29,7 +29,7 @@ games/
 │   └── data_utils.py
 │
 ├── data/
-│   ├── raw/                  # Original dataset (not uploaded)
+│   ├── raw/                  # Original dataset
 │   ├── cleaned/              # Cleaned intermediate outputs
 │   └── normalised/           # Final Power BI–ready tables
 │       ├── games_dim.csv
