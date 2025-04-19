@@ -1,10 +1,10 @@
-# Steam Game Analytics — Power BI Ready Data Model
+## Steam Game Analytics — Power BI Ready Data Model
 
 This project transforms a raw dataset of games, reviews, achievements, and player interactions from the Steam platform into a clean, normalized **star schema** ready for use in Power BI or any modern BI tool.
 The raw data used in this project was sourced from [Steam Game Data on Kaggle](https://www.kaggle.com/datasets/artyomkruglov/gaming-profiles-2025-steam-playstation-xbox/). We focus on the Steam platform but there are playstation and Xbox datasets as well.
 ---
 
-## Overview
+### Overview
 
 The dataset multi-valued fields, inconsistent dates, and deeply nested relationships which may not be ideal dor Power BI. In this project, we shall do the following tasks:
 
@@ -16,7 +16,7 @@ The dataset multi-valued fields, inconsistent dates, and deeply nested relations
 
 ---
 
-## 📁 Project Structure
+### Project Structure
 
 ```text
 games/

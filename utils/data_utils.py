@@ -3,19 +3,26 @@ import numpy as np
 import pandas as pd
 import ast
 
-def miss_val_per(df):
+def missing_value_summary(df):
+    """
+    Returns a summary of missing values for each column in the DataFrame.
 
-    miss_per_col  = df.isnull().sum()
+    Parameters:
+    - df: pd.DataFrame
 
+    Returns:
+    - pd.DataFrame with:
+        - Number of missing values per column
+        - Percentage of missing values relative to total rows
+    """
+    miss_per_col = df.isnull().sum()
+    missing_val_percent = np.round(100 * miss_per_col / len(df), 2)
 
-    mising_val_percent = np.round(100 * miss_per_col / len(df),2)
+    missing = pd.concat([miss_per_col, missing_val_percent], axis=1)
+    missing.columns = ['Number of Missing Values', 'Percent of Total Values']
+    missing = missing.sort_values('Percent of Total Values', ascending=False)
 
-
-    missing = pd.concat([miss_per_col, mising_val_percent], axis=1)
-    missing = missing.rename(
-            columns = {0 : 'Number of Missing Values', 1 : 'Percent of Total Values'}).sort_values('Percent of Total Values',ascending=False)
     return missing
-
 
 def create_dim_and_bridge(games_df, column_name, dim_name):
     """
