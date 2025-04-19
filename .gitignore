@@ -14,3 +14,13 @@ steam/friends.csv
 steam/games.csv
 steam/games_ch.csv
 steam/games_cleaned.csv
+data_steam/raw/achievements.csv
+data_steam/raw/friends.csv
+data_steam/raw/games.csv
+data_steam/raw/history.csv
+data_steam/raw/players.csv
+data_steam/raw/prices.csv
+data_steam/raw/private_steamids.csv
+data_steam/raw/purchased_games.csv
+data_steam/raw/reviews.csv
+data_steam/📦 Summary of Normalization and Dimensional Modeling Work.docx

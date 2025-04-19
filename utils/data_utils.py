@@ -48,3 +48,34 @@ def create_dim_and_bridge(games_df, column_name, dim_name):
     bridge_table = bridge_table[['gameid', f'{dim_name}_id']].drop_duplicates().reset_index(drop=True)
 
     return dim_table, bridge_table
+
+
+def generate_date_dim(date_series, date_col_name="Date"):
+    """
+    Generates a standard date dimension from a given datetime series.
+
+    Parameters:
+    - date_series: a pd.Series of datetime objects (e.g. df['posted'])
+    - date_col_name: name of the output column representing the date (default: 'Date')
+
+    Returns:
+    - date_dim: a DataFrame with standard date attributes
+    """
+    # Coerce to datetime and drop NaT
+    clean_series = pd.to_datetime(date_series, errors='coerce').dropna()
+
+    # Build date range
+    full_range = pd.date_range(start=clean_series.min(), end=clean_series.max())
+
+    # Create dimension table
+    date_dim = pd.DataFrame({date_col_name: full_range})
+    date_dim['date_id'] = date_dim[date_col_name].dt.strftime('%Y%m%d').astype(int)
+    date_dim['Year'] = date_dim[date_col_name].dt.year
+    date_dim['Month'] = date_dim[date_col_name].dt.strftime('%b')
+    date_dim['MonthNumber'] = date_dim[date_col_name].dt.month
+    date_dim['YearMonth'] = date_dim[date_col_name].dt.strftime('%Y-%m')
+
+    # Final column order
+    date_dim = date_dim[['date_id', date_col_name, 'Year', 'Month', 'MonthNumber', 'YearMonth']]
+
+    return date_dim
