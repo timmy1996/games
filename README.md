@@ -24,7 +24,7 @@ games/
 ├── notebooks/                # Documented data workflows
 │   ├── steam_data_clean_up.ipynb
 │   ├── data_normalisation.ipynb
-│   └── 03_export_and_powerbi_notes.ipynb
+│   └── power_bi_report.ipynb
 │
 ├── utils/                    # Reusable Python utility functions
 │   └── data_utils.py
