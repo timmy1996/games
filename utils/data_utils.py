@@ -41,7 +41,7 @@ def create_dim_and_bridge(games_df, column_name, dim_name):
     if games_df[column_name].apply(type).eq(str).any():
         games_df[column_name] = games_df[column_name].apply(lambda x: ast.literal_eval(x) if isinstance(x, str) else x)
 
-    # Explode to long format
+   
     exploded = games_df[['gameid', column_name]].explode(column_name).dropna().copy()
     exploded.rename(columns={column_name: f'{dim_name}_name'}, inplace=True)
 
@@ -50,7 +50,7 @@ def create_dim_and_bridge(games_df, column_name, dim_name):
     dim_table[f'{dim_name}_id'] = dim_table.index + 1
     dim_table = dim_table[[f'{dim_name}_id', f'{dim_name}_name']]
 
-    # Create bridge table
+    
     bridge_table = exploded.merge(dim_table, on=f'{dim_name}_name', how='left')
     bridge_table = bridge_table[['gameid', f'{dim_name}_id']].drop_duplicates().reset_index(drop=True)
 
@@ -68,7 +68,7 @@ def generate_date_dim(date_series, date_col_name="Date"):
     Returns:
     - date_dim: a DataFrame with standard date attributes
     """
-    # Coerce to datetime and drop NaT
+   
     clean_series = pd.to_datetime(date_series, errors='coerce').dropna()
 
     # Build date range
@@ -82,7 +82,7 @@ def generate_date_dim(date_series, date_col_name="Date"):
     date_dim['MonthNumber'] = date_dim[date_col_name].dt.month
     date_dim['YearMonth'] = date_dim[date_col_name].dt.strftime('%Y-%m')
 
-    # Final column order
+    
     date_dim = date_dim[['date_id', date_col_name, 'Year', 'Month', 'MonthNumber', 'YearMonth']]
 
     return date_dim
