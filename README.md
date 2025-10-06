@@ -7,7 +7,9 @@ The raw data used in this project was sourced from [Steam Game Data on Kaggle](h
 
 ### Overview
 
-The dataset multi-valued fields, deeply nested relationships which may not be ideal for Power BI. In this project, we shall do the following tasks:
+The dataset multi-valued fields, deeply nested relationships which may not be ideal for Power BI. 
+
+In this project, we shall do the following tasks:
 
 - Clean and validate data using pandas (missing values etc)
 - Normalise multi-valued attributes like developers, genres, and publishers
