@@ -19,7 +19,6 @@ In this project, the following steps were undertaken:
 - **Export** the final Power BI–ready schema for visualization and dashboarding  
 - **Develop a concise Power BI report** showcasing how a well-modeled dataset enables faster insights and cleaner visual analytics
   
-See `03_power_bi_report.ipynb` for Power BI screenshots and a mini discussion.
 ---
 
 ### Project Structure  
