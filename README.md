@@ -20,25 +20,19 @@ In this project, we shall do the following tasks:
 ---
 
 ### Project Structure
-
+The raw files and cleaned files are not uploaded but available on request (or thriough reproducing the code using the original files from steam)
 ```text
 games/
 ├── notebooks/                # Documented data workflows
-│   ├── steam_data_clean_up.ipynb
-│   ├── data_normalisation.ipynb
-│   └── power_bi_report.ipynb
+│   ├── 01_steam_data_clean_up.ipynb
+│   ├── 02_data_normalisation.ipynb
+│   └── 03_power_bi_report.ipynb
 │
 ├── utils/                    # Reusable Python utility functions
 │   └── data_utils.py
 │
-├── data/
-│   ├── raw/                  # Original dataset
-│   ├── cleaned/              # Cleaned intermediate outputs
-│   └── normalised/           # Final Power BI–ready tables
-│       ├── games_dim.csv
-│       ├── prices_fact.csv
-│       ├── dev_game_map.csv
-│       └── ...
+├── images/
+
 │
 ├── README.md
 └── requirements.txt
