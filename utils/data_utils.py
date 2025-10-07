@@ -45,7 +45,7 @@ def create_dim_and_bridge(games_df, column_name, dim_name):
     exploded = games_df[['gameid', column_name]].explode(column_name).dropna().copy()
     exploded.rename(columns={column_name: f'{dim_name}_name'}, inplace=True)
 
-    # Create dimension table
+   
     dim_table = exploded[[f'{dim_name}_name']].drop_duplicates().reset_index(drop=True).copy()
     dim_table[f'{dim_name}_id'] = dim_table.index + 1
     dim_table = dim_table[[f'{dim_name}_id', f'{dim_name}_name']]
@@ -74,7 +74,7 @@ def generate_date_dim(date_series, date_col_name="Date"):
     # Build date range
     full_range = pd.date_range(start=clean_series.min(), end=clean_series.max())
 
-    # Create dimension table
+  
     date_dim = pd.DataFrame({date_col_name: full_range})
     date_dim['date_id'] = date_dim[date_col_name].dt.strftime('%Y%m%d').astype(int)
     date_dim['Year'] = date_dim[date_col_name].dt.year
